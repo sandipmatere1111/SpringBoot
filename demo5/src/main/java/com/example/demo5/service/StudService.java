@@ -11,4 +11,6 @@ public interface StudService {
     public Student getStud(long studId);
 
     public Student addStud(Student student);
+
+    public void deleteStud(long parselong);
 }
