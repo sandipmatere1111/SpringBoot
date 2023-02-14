@@ -1,12 +1,15 @@
 package com.example.demo3.entities;
 
+import com.example.demo3.dao.UserRepo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.List;
+
 @Entity
-public class User {
+public class Citizenn {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -14,26 +17,26 @@ public class User {
     private String city;
     private String status;
 
-    public User(int id, String name, String city, String status) {
+    public Citizenn(int id, String name, String city, String status) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.status = status;
     }
 
-    public User() {
+    public Citizenn() {
         super();
     }
 
-//    @Override
-//    public String toString() {
-//        return "User{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", city='" + city + '\'' +
-//                ", status='" + status + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
 
     public String getStatus() {
         return status;

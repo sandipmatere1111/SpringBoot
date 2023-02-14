@@ -9,14 +9,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 public class MyController {
     @Autowired
     private StudService studService;
 
     @GetMapping("/students")
-    public List<Student> getStud(){
-        return this.studService.getStud();
+    public ResponseEntity<List<Student>> getStud(){
+        List<Student> list=studService.getStud();
+        if(list.size()<=0){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.of(Optional.of(list));
     }
     @GetMapping("/student/{studId}")
     public Student getStud(@PathVariable String studId){
